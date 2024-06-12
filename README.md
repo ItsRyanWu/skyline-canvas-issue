@@ -1,4 +1,4 @@
-# hublot-wecom-mp
+# ef-lessons-mp
 
 ## Project setup
 

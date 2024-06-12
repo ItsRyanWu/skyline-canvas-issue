@@ -14,8 +14,8 @@
     }
   },
   "appid": "wx84df46fa68844b48",
-  "projectname": "hublot-wecom-mp",
-  "description": "Hublot WeCom MP",
+  "projectname": "ef-lessons-mp",
+  "description": "EF lessons mp",
   "condition": {},
   "compileType": "miniprogram",
   "libVersion": "3.4.4",
