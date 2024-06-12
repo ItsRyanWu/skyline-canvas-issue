@@ -1,19 +1,27 @@
 <template>
-  <dc-page class="bg-black flex flex-col">test</dc-page>
+  <dc-page class="bg-white flex flex-col">
+    <button class="mt-70" bindtap="goToReport">Go to report</button>
+  </dc-page>
 </template>
 
 <script lang="ts">
   import mpx, { onShow, shallowRef } from '@mpxjs/core'
   import { computed, createPage, ref } from '@mpxjs/core'
   import { App } from '../type/App'
-  import { formatPhoneNumber, getContext, copy } from '../utils'
-  import { ErrorCode } from '../type/ErrorCode'
 
   const app = getApp<App>()
 
   createPage({
     setup(props) {
-      return {}
+      function goToReport() {
+        mpx.navigateTo({
+          url: '/pack-1/pages/report',
+        })
+      }
+
+      return {
+        goToReport,
+      }
     },
   })
 </script>
@@ -24,7 +32,6 @@
 <script type="application/json">
   {
     "usingComponents": {
-      "dc-icon": "../components/icon",
       "dc-page": "../components/page"
     }
   }

@@ -6,7 +6,6 @@
   import apiProxy from '@mpxjs/api-proxy'
   import eventBus from './api/event-bus'
   import { Toast } from './type/Toast'
-  import { Service } from './api'
 
   mpx.use(apiProxy, { usePromise: true })
 
@@ -56,6 +55,12 @@
 <script type="application/json">
   {
     "pages": ["./pages/index"],
+    "subPackages": [
+      {
+        "root": "pack-1",
+        "pages": ["./pages/report"]
+      }
+    ],
     "style": "v2",
     "window": {
       "navigationBarTitleText": "EF",

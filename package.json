@@ -12,6 +12,8 @@
     "open": "/Applications/wechatwebdevtools.app/contents/MacOS/cli open --project $(pwd)/dist/wx"
   },
   "dependencies": {
+    "@galacean/appx-adapter": "^0.2.0",
+    "@galacean/effects": "^1.5.1",
     "@mpxjs/api-proxy": "^2.9.0",
     "@mpxjs/core": "^2.9.0",
     "@mpxjs/fetch": "^2.9.0",
@@ -19,7 +21,6 @@
     "@mpxjs/store": "^2.9.0",
     "@mpxjs/utils": "^2.9.0",
     "eslint-config-prettier": "^9.1.0",
-    "hublot-ui-mp": "dcasia/hublot-ui-mp",
     "nanographql": "^2.0.0",
     "pinia": "^2.0.14",
     "sass": "^1.77.2",
