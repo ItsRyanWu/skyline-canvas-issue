@@ -1,0 +1,33 @@
+{
+  "setting": {
+    "newFeature": true,
+    "urlCheck": true,
+    "es6": false,
+    "postcss": true,
+    "minified": false,
+    "checkSiteMap": false,
+    "autoAudits": false,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    }
+  },
+  "appid": "wx84df46fa68844b48",
+  "projectname": "hublot-wecom-mp",
+  "description": "Hublot WeCom MP",
+  "condition": {},
+  "compileType": "miniprogram",
+  "libVersion": "3.4.4",
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  },
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
+  },
+  "simulatorPluginLibVersion": {
+    "qywx_simulator_plugin": "2.20.3"
+  }
+}

@@ -1,0 +1,31 @@
+<template>
+  <dc-page class="bg-black flex flex-col">test</dc-page>
+</template>
+
+<script lang="ts">
+  import mpx, { onShow, shallowRef } from '@mpxjs/core'
+  import { computed, createPage, ref } from '@mpxjs/core'
+  import { App } from '../type/App'
+  import { formatPhoneNumber, getContext, copy } from '../utils'
+  import { ErrorCode } from '../type/ErrorCode'
+
+  const app = getApp<App>()
+
+  createPage({
+    setup(props) {
+      return {}
+    },
+  })
+</script>
+
+<style>
+</style>
+
+<script type="application/json">
+  {
+    "usingComponents": {
+      "dc-icon": "../components/icon",
+      "dc-page": "../components/page"
+    }
+  }
+</script>

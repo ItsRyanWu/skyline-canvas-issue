@@ -1,0 +1,46 @@
+<template>
+  <view class="page min-h-screen class -theme-{{theme}}">
+    <!-- <dc-navigation-bar theme="{{theme}}" hasReservedSpace>
+      <view
+        class="flex flex-none justify-center items-center h-full text-sm tracking-wide"
+        slot="logo"
+      >
+        客户详情
+      </view>
+    </dc-navigation-bar> -->
+    <slot />
+    <!-- <dc-toast-group wx:ref="toast" needsSafeMarginBottom class="toast-group" /> -->
+  </view>
+</template>
+
+<script lang="ts">
+  import { createComponent, onShow, onUnmounted, onHide, ref } from '@mpxjs/core'
+  import eventBus from '../api/event-bus'
+  import { App } from '../type/App'
+
+  const app = getApp<App>()
+
+  createComponent({
+    options: {
+      virtualHost: true,
+    },
+    externalClasses: ['class'],
+    properties: {
+      theme: {
+        type: String,
+        value: 'dark',
+      },
+    },
+    setup(props, { refs }) {
+      return {}
+    },
+  })
+</script>
+
+
+<script type="application/json">
+  {
+    "styleIsolation": "apply-shared",
+    "usingComponents": {}
+  }
+</script>

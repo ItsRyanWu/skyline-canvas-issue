@@ -1,0 +1,74 @@
+<template>
+  <view
+    class="icon class {{isDisabled ? '-disabled' : ''}}"
+    style="{{style}}"
+    hover-class="-{{hoverStyle}}"
+    hover-stay-time="200"
+    hover-start-time="0"
+    hidden="{{hidden}}"
+  >
+    <view class="icon__inner icon-{{type}}" style="{{dimensionStyle}}" />
+  </view>
+</template>
+
+<script lang="ts">
+  import { createComponent } from '@mpxjs/core'
+
+  createComponent({
+    options: {
+      virtualHost: true,
+    },
+    externalClasses: ['class'],
+    properties: {
+      type: {
+        type: String,
+      },
+      style: String,
+      height: {
+        type: Number,
+        optionalTypes: [String],
+      },
+      width: {
+        type: Number,
+        optionalTypes: [String],
+      },
+      hidden: {
+        type: Boolean,
+        value: false,
+      },
+      hoverStyle: String,
+      isDisabled: {
+        type: Boolean,
+        value: false,
+      },
+    },
+    computed: {
+      dimensionStyle() {
+        const height = this.height ? `height:${Number(this.height) * 2}rpx;` : ''
+        const width = this.width ? `width:${Number(this.width) * 2}rpx;` : ''
+
+        return height + width
+      },
+    },
+  })
+</script>
+
+<style>
+  .icon__inner {
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+
+  .icon__inner.icon-copy {
+    background-image: url('../assets/icons/copy.svg');
+  }
+</style>
+
+<script type="application/json">
+  {
+    "styleIsolation": "apply-shared"
+  }
+</script>

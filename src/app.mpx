@@ -1,0 +1,89 @@
+
+
+<script lang="ts">
+  /// <reference path="../types.d.ts" />
+  import mpx, { createApp } from '@mpxjs/core'
+  import apiProxy from '@mpxjs/api-proxy'
+  import eventBus from './api/event-bus'
+  import { Toast } from './type/Toast'
+  import { Service } from './api'
+
+  mpx.use(apiProxy, { usePromise: true })
+
+  createApp({
+    async onLaunch() {},
+    showToast(option: Toast) {
+      eventBus.showToast(option)
+    },
+    hideToast(id: string) {
+      eventBus.hideToast({
+        id,
+      })
+    },
+  })
+</script>
+
+<style lang="scss">
+  .page {
+    --safe-margin-bottom: env(safe-area-inset-bottom);
+    --safe-margin-bottom-reduced: calc(env(safe-area-inset-bottom, 15px) - 15px);
+  }
+
+  // .skeleton {
+  //   animation: 1.5s ease-in skeleton-flicker infinite alternate;
+  // }
+
+  @keyframes skeleton-flicker {
+    0% {
+      opacity: 1;
+    }
+    10% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  // @mixin tabbar-space {
+  //   height: $tabbar-entire-height;
+  //   min-height: $tabbar-entire-min-height;
+  // }
+
+  @import './assets/style/fonts.scss';
+</style>
+
+<script type="application/json">
+  {
+    "pages": ["./pages/index"],
+    "style": "v2",
+    "window": {
+      "navigationBarTitleText": "EF",
+      "navigationStyle": "custom",
+      "backgroundColor": "#000000"
+    },
+    "renderer": "skyline",
+    "lazyCodeLoading": "requiredComponents",
+    "componentFramework": "glass-easel",
+    "rendererOptions": {
+      "skyline": {
+        "defaultDisplayBlock": true,
+        "defaultContentBox": false,
+        "disableABTest": true,
+        "sdkVersionBegin": "3.0.1",
+        "sdkVersionEnd": "15.255.255"
+      }
+    }
+  }
+</script>
+
+<!--也可以通过以下形式用js输出json，便于书写注释和使用条件编译-->
+
+<!--<script name="json">-->
+<!--  // 可以写注释，通过defs注入的常量做一些判断之类的操作-->
+<!--  module.exports = {-->
+<!--    pages: [-->
+<!--      './pages/index'-->
+<!--    ]-->
+<!--  }-->
+<!--</script>-->
