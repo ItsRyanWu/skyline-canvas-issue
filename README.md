@@ -10,10 +10,10 @@ npm run serve
 
 问题表现：
 
-iOS + Skyline: Canvas 在页面初次挂载时启动渲染，有很大几率崩溃。（若加 1s setTimeout 延迟则不会崩溃）
-iOS + Webview: Canvas 渲染正常
-Android + Skyline: Canvas 渲染正常
-Android + Webview: Canvas 渲染正常
+- iOS + Skyline: Canvas 在页面初次挂载时启动渲染，有很大几率崩溃。（若加 1s setTimeout 延迟则不会崩溃）
+- iOS + Webview: Canvas 渲染正常
+- Android + Skyline: Canvas 渲染正常
+- Android + Webview: Canvas 渲染正常
 
 目前临时解决方法：
 
