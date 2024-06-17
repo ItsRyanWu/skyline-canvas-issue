@@ -23,41 +23,41 @@
   // const app = getApp<App>()
 
   createPage({
-    setup(props) {
-      const player = shallowRef<Player>()
-      registerCanvas({ id: '#J-webglCanvas' }).then(canvas => {
-        player.value = new Player({
-          transparentBackground: true,
-          canvas,
-          pixelRatio: 2,
-          renderFramework: 'webgl',
-          onItemClicked(data) {
-            console.log(data)
-          },
-          onMessageItem(data) {
-            console.log(data)
-          },
+    data: {
+      player: null as any,
+    },
+    onReady() {
+      setTimeout(() => {
+        registerCanvas({ id: '#J-webglCanvas' }).then(canvas => {
+          this.player = new Player({
+            transparentBackground: true,
+            canvas,
+            pixelRatio: 2,
+            renderFramework: 'webgl',
+            onItemClicked(data) {
+              console.log(data)
+            },
+            onMessageItem(data) {
+              console.log(data)
+            },
+          })
+          // this.player = player
+          this.player
+            .loadScene(
+              'https://daily.returntrue.io/test-skyline-canvas/test.json'
+            )
+            .then(res => {
+              console.log(res)
+            })
+            .catch(error => {
+              console.error(error)
+            })
         })
-        // this.player = player
-        player.value
-          .loadScene('https://daily.returntrue.io/test-skyline-canvas/test.json')
-          .then(res => {
-            console.log(res)
-          })
-          .catch(error => {
-            console.error(error)
-          })
-        // this.playByUrl(inspireList.text.url);
-      })
-
-      onUnmounted(() => {
-        console.log('on unmounted')
-        player.value?.dispose(true)
-      })
-
-      // 实例化一个播放器
-
-      return {}
+      }, 1000)
+    },
+    onUnload() {
+      console.log('on unmounted')
+      this.player?.dispose(true)
     },
   })
 </script>
