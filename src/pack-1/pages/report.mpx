@@ -13,47 +13,42 @@
 <script lang="ts">
   import mpx, { onMounted, onShow, onUnmounted, shallowRef } from '@mpxjs/core'
   import { computed, createPage, ref } from '@mpxjs/core'
-  // import { App } from '../type/App'
   import { registerCanvas } from '@galacean/appx-adapter/weapp'
   import { Player, AbstractPlugin, registerPlugin } from '@galacean/effects/weapp'
   // 假装注册陀螺仪插件，兼容有陀螺仪的合成报错
   // @ts-expect-error
   registerPlugin('orientation-transformer', AbstractPlugin, AbstractPlugin, false)
 
-  // const app = getApp<App>()
-
   createPage({
     data: {
       player: null as any,
     },
     onReady() {
-      setTimeout(() => {
-        registerCanvas({ id: '#J-webglCanvas' }).then(canvas => {
-          this.player = new Player({
-            transparentBackground: true,
-            canvas,
-            pixelRatio: 2,
-            renderFramework: 'webgl',
-            onItemClicked(data) {
-              console.log(data)
-            },
-            onMessageItem(data) {
-              console.log(data)
-            },
-          })
-          // this.player = player
-          this.player
-            .loadScene(
-              'https://daily.returntrue.io/test-skyline-canvas/test.json'
-            )
-            .then(res => {
-              console.log(res)
-            })
-            .catch(error => {
-              console.error(error)
-            })
+      // 可以尝试把 setTimeout 加上以暂时绕过问题
+      // setTimeout(() => {
+      registerCanvas({ id: '#J-webglCanvas' }).then(canvas => {
+        this.player = new Player({
+          transparentBackground: true,
+          canvas,
+          pixelRatio: 2,
+          renderFramework: 'webgl',
+          onItemClicked(data) {
+            console.log(data)
+          },
+          onMessageItem(data) {
+            console.log(data)
+          },
         })
-      }, 1000)
+        this.player
+          .loadScene('https://daily.returntrue.io/test-skyline-canvas/test.json')
+          .then(res => {
+            console.log(res)
+          })
+          .catch(error => {
+            console.error(error)
+          })
+      })
+      // }, 1000)
     },
     onUnload() {
       console.log('on unmounted')
